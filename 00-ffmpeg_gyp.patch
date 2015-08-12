@@ -1,0 +1,24 @@
+diff -uNr a/chromium/third_party/ffmpeg/ffmpeg.gyp b/chromium/third_party/ffmpeg/ffmpeg.gyp
+--- a/chromium/third_party/ffmpeg/ffmpeg.gyp	2015-07-24 23:27:10.000000000 +0300
++++ b/chromium/third_party/ffmpeg/ffmpeg.gyp	2015-08-11 07:05:52.197456122 +0300
+@@ -82,6 +82,8 @@
+     'build_ffmpegsumo%': 1,
+     'ffmpeg_component%': '<(component)',
+ 
++    'ffmpeg_soname_version%': '',
++
+     # Locations for generated artifacts.
+     'shared_generated_dir': '<(SHARED_INTERMEDIATE_DIR)/third_party/ffmpeg',
+ 
+@@ -343,6 +345,11 @@
+                     '-Wl,-Bsymbolic',
+                     '-L<(shared_generated_dir)',
+                   ],
++                  'conditions': [
++                    ['ffmpeg_soname_version != ""', {
++                      'product_extension': 'so.<(ffmpeg_soname_version)',
++                    }],
++                  ],
+                 }],
+               ],
+             }],  # os_posix == 1 and OS != "mac"
