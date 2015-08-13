@@ -5,7 +5,6 @@
 
 %define chromium_ver 44.0.2403.107
 %define opera_major_ver 31
-%define opera_ver 31.0.1889.99
 %define opera_chan opera-stable
 
 %if 0%{?fedora} >= 21
@@ -16,7 +15,7 @@
 
 Summary:	Additional FFmpeg library for Opera Web browser providing H264 and MP3 support
 Name:		%{opera_chan}-libffmpeg
-Version:	%{opera_ver}
+Version:	31.0.1889.99
 Release:	1%{?dist}
 Epoch:		5
 
@@ -159,7 +158,7 @@ BuildRequires:  xvidcore-devel
 BuildRequires:	clang
 %endif
 
-Requires:	%{opera_chan} = 5:%{opera_ver}
+Requires:	%{opera_chan} = 5:%{version}
 
 %description
 Due to changes in Chromium, Opera is no longer able to use the system FFmpeg
@@ -176,7 +175,7 @@ H264 and MP3 support. Opera-libffmpeg package includes this library.
 
 # Create symlink for compatibility with %patch0
 pushd %{_builddir}/%{name}-%{version}
-ln -s %{_builddir}/%{name}-%{version}/chromium-%{chromium_ver} %{_builddir}/%{name}-%{version}/chromium
+ln -s chromium-%{chromium_ver} chromium
 popd
 
 %patch0 -p1
