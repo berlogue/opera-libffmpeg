@@ -26,6 +26,7 @@ URL:		https://gist.github.com/lukaszzek/ec04d5c953226c062dac
 Source0:	https://commondatastorage.googleapis.com/chromium-browser-official/chromium-%{chromium_ver}.tar.xz
 Source1:	depot_tools.tar.xz
 Source2:	gn-binaries.tar.xz
+Source3:	check_chromium_version.sh
 
 Patch0:		00-ffmpeg_gyp.patch
 
@@ -287,6 +288,7 @@ install -m 644 %{_builddir}/%{name}-%{version}/chromium-%{chromium_ver}/out/Rele
 %changelog
 * Thu Aug 20 2015 carasin berlogue <carasin DOT berlogue AT mail DOT ru> 31.0.1889.174-1.R
 - Update to 31.0.1889.174
+- Add check_chromium_version.sh
 
 * Wed Aug 12 2015 carasin berlogue <carasin DOT berlogue AT mail DOT ru> 31.0.1889.99-1.R
 - Initial build
